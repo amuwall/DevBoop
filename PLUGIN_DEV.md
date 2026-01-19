@@ -1,6 +1,6 @@
 # Plugin Development Guide
 
-DevToolbox is designed to be easily extensible through plugins. Each tool in the application is a standalone plugin.
+DevBoop is designed to be easily extensible through plugins. Each tool in the application is a standalone plugin.
 
 ## Plugin Structure
 

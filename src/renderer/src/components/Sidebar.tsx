@@ -58,7 +58,7 @@ export const Sidebar: React.FC = () => {
     <div className={styles.root}>
       <div className={styles.header}>
         <GridDots24Regular />
-        <Text weight="bold" size={400}>DevToolbox</Text>
+        <Text weight="bold" size={400}>DevBoop</Text>
       </div>
       <div className={styles.pluginList}>
         <Text size={300} weight="semibold" style={{ padding: '0 8px 8px 8px' }}>Tools</Text>

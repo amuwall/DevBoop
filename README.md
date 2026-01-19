@@ -1,4 +1,4 @@
-# DevToolbox
+# DevBoop
 
 A comprehensive Windows development toolbox application built with Electron, React, and Fluent UI.
 

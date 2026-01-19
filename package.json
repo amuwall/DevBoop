@@ -1,5 +1,5 @@
 {
-  "name": "dev-toolbox",
+  "name": "dev-boop",
   "version": "1.0.0",
   "description": "A comprehensive Windows development toolbox application",
   "main": "./out/main/index.js",
