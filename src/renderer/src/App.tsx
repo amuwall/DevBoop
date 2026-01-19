@@ -4,6 +4,7 @@ import { Sidebar } from './components/Sidebar';
 import { Workspace } from './components/Workspace';
 import { useAppStore } from './store/useAppStore';
 import { TimestampPlugin } from './plugins/TimestampConverter';
+import { Base64Plugin } from './plugins/Base64Converter';
 
 const useStyles = makeStyles({
   container: {
@@ -23,6 +24,7 @@ const App: React.FC = () => {
   // Register core plugins on mount
   useEffect(() => {
     registerPlugin(TimestampPlugin);
+    registerPlugin(Base64Plugin);
   }, []);
 
   return (
