@@ -1,57 +1,57 @@
 # DevBoop
 
-A comprehensive Windows development toolbox application built with Electron, React, and Fluent UI.
+一个基于 Electron、React 和 Fluent UI 构建的综合性 Windows 开发工具箱应用程序。
 
-## Features
+## 功能特性
 
-- **Modular Architecture**: Built on a robust plugin system.
-- **Modern UI**: Follows Windows 11 Fluent Design principles using `@fluentui/react-components`.
-- **Core Tools**:
-  - **Timestamp Converter**: Convert between Unix timestamps (seconds/milliseconds) and human-readable dates (Local/UTC).
-- **Productivity**:
-  - Multi-tab support for working with multiple tools simultaneously.
-  - Dark/Light theme toggle.
-  - Sidebar navigation.
+- **模块化架构**: 基于强大的插件系统构建。
+- **现代化界面**: 使用 `@fluentui/react-components` 遵循 Windows 11 Fluent Design 设计原则。
+- **核心工具**:
+  - **时间戳转换器**: 在 Unix 时间戳（秒/毫秒）和可读日期格式（本地/UTC）之间进行转换。
+- **生产力**:
+  - 多标签页支持，可同时处理多个任务。
+  - 深色/浅色主题切换。
+  - 侧边栏导航。
 
-## Getting Started
+## 快速开始
 
-### Prerequisites
+### 前置要求
 
 - Node.js (v18+)
 - npm
 
-### Installation
+### 安装
 
-1. Clone the repository.
-2. Install dependencies:
+1. 克隆仓库。
+2. 安装依赖：
    ```bash
    npm install
    ```
 
-### Running Development
+### 启动开发环境
 
-Start the app in development mode with hot-reload:
+以热重载模式启动应用：
 
 ```bash
 npm run dev
 ```
 
-### Building for Production
+### 构建生产版本
 
-Build the application for Windows:
+构建 Windows 应用程序：
 
 ```bash
 npm run build
 ```
 
-## Testing
+## 测试
 
-Run unit tests:
+运行单元测试：
 
 ```bash
 npm run test
 ```
 
-## Contributing
+## 贡献指南
 
-See [PLUGIN_DEV.md](PLUGIN_DEV.md) for instructions on how to create new tools.
+查看 [PLUGIN_DEV.md](PLUGIN_DEV.md) 了解如何创建新工具。

@@ -80,7 +80,7 @@ export const Workspace: React.FC = () => {
           <ActivePluginComponent />
         ) : (
           <div className={styles.welcome}>
-            Select a tool from the sidebar to get started
+            请从左侧栏选择一个工具以开始使用
           </div>
         )}
       </div>

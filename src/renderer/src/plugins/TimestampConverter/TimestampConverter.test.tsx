@@ -15,18 +15,18 @@ describe('TimestampConverter', () => {
   it('renders correctly', () => {
     const Component = TimestampPlugin.component;
     render(<Component />, { wrapper: Wrapper });
-    expect(screen.getByText('Unix Timestamp Converter')).toBeTruthy();
+    expect(screen.getByText('Unix 时间戳转换器')).toBeTruthy();
   });
 
   it('updates timestamp when "Now" is clicked', () => {
     const Component = TimestampPlugin.component;
     render(<Component />, { wrapper: Wrapper });
     
-    const nowButton = screen.getByText('Now');
+    const nowButton = screen.getByText('当前');
     fireEvent.click(nowButton);
     
     // Check if input has a value
-    const input = screen.getByPlaceholderText('Enter timestamp...') as HTMLInputElement;
+    const input = screen.getByPlaceholderText('输入时间戳...') as HTMLInputElement;
     expect(input.value).toBeTruthy();
   });
 });

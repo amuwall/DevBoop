@@ -110,34 +110,34 @@ const TimestampComponent: React.FC = () => {
     <div className={styles.container}>
       <Card className={styles.card}>
         <CardHeader 
-          header={<Text weight="bold" size={500}>Unix Timestamp Converter</Text>}
-          description={<Text>Convert between Unix timestamps and human-readable dates</Text>}
+          header={<Text weight="bold" size={500}>Unix 时间戳转换器</Text>}
+          description={<Text>在 Unix 时间戳和可读日期格式之间转换</Text>}
         />
         
         <div className={styles.row}>
-          <Field label="Timestamp" style={{ flexGrow: 1 }}>
+          <Field label="时间戳" style={{ flexGrow: 1 }}>
             <Input 
               value={timestamp} 
               onChange={handleTimestampChange} 
               type="number"
-              placeholder="Enter timestamp..."
+              placeholder="输入时间戳..."
             />
           </Field>
-          <Button icon={<Clock24Regular />} onClick={handleNow}>Now</Button>
+          <Button icon={<Clock24Regular />} onClick={handleNow}>当前</Button>
         </div>
 
         <div className={styles.row}>
-           <Field label="Unit">
+           <Field label="单位">
             <RadioGroup layout="horizontal" value={unit} onChange={handleUnitChange}>
-              <Radio value="seconds" label="Seconds" />
-              <Radio value="milliseconds" label="Milliseconds" />
+              <Radio value="seconds" label="秒" />
+              <Radio value="milliseconds" label="毫秒" />
             </RadioGroup>
           </Field>
         </div>
 
         <div className={styles.result}>
           <div>
-            <Text weight="semibold" style={{ display: 'block', marginBottom: '4px' }}>Local Time:</Text>
+            <Text weight="semibold" style={{ display: 'block', marginBottom: '4px' }}>本地时间：</Text>
             <Text font="monospace">{localDate}</Text>
           </div>
           <Button 
@@ -149,7 +149,7 @@ const TimestampComponent: React.FC = () => {
 
         <div className={styles.result}>
           <div>
-            <Text weight="semibold" style={{ display: 'block', marginBottom: '4px' }}>UTC Time:</Text>
+            <Text weight="semibold" style={{ display: 'block', marginBottom: '4px' }}>UTC 时间：</Text>
             <Text font="monospace">{utcDate}</Text>
           </div>
           <Button 
@@ -165,8 +165,8 @@ const TimestampComponent: React.FC = () => {
 
 export const TimestampPlugin: IPlugin = {
   id: 'timestamp-converter',
-  name: 'Timestamp Converter',
-  description: 'Convert between Unix timestamps and readable dates',
+  name: '时间戳转换器',
+  description: 'Unix 时间戳与日期互转',
   icon: <Clock24Regular />,
   component: TimestampComponent,
   version: '1.0.0',

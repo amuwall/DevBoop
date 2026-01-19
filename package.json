@@ -1,7 +1,7 @@
 {
   "name": "dev-boop",
   "version": "1.0.0",
-  "description": "A comprehensive Windows development toolbox application",
+  "description": "一个功能全面的 Windows 开发工具箱应用程序",
   "main": "./out/main/index.js",
   "scripts": {
     "start": "electron-vite preview",
