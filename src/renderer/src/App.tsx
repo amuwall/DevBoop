@@ -5,6 +5,7 @@ import { Workspace } from './components/Workspace';
 import { useAppStore } from './store/useAppStore';
 import { TimestampPlugin } from './plugins/TimestampConverter';
 import { Base64Plugin } from './plugins/Base64Converter';
+import { JwtPlugin } from './plugins/JwtTool';
 
 const useStyles = makeStyles({
   container: {
@@ -25,6 +26,7 @@ const App: React.FC = () => {
   useEffect(() => {
     registerPlugin(TimestampPlugin);
     registerPlugin(Base64Plugin);
+    registerPlugin(JwtPlugin);
   }, []);
 
   return (

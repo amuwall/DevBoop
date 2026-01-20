@@ -41,6 +41,7 @@
   "dependencies": {
     "@fluentui/react-components": "^9.46.0",
     "@fluentui/react-icons": "^2.0.226",
+    "jose": "^6.1.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "zustand": "^4.5.0"
