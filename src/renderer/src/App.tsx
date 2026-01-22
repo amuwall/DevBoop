@@ -6,6 +6,7 @@ import { useAppStore } from './store/useAppStore';
 import { TimestampPlugin } from './plugins/TimestampConverter';
 import { Base64Plugin } from './plugins/Base64Converter';
 import { JwtPlugin } from './plugins/JwtTool';
+import { JsonYamlPlugin } from './plugins/JsonYamlConverter';
 
 const useStyles = makeStyles({
   container: {
@@ -27,6 +28,7 @@ const App: React.FC = () => {
     registerPlugin(TimestampPlugin);
     registerPlugin(Base64Plugin);
     registerPlugin(JwtPlugin);
+    registerPlugin(JsonYamlPlugin);
   }, []);
 
   return (
