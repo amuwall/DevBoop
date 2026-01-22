@@ -5,7 +5,12 @@ import {
   Tab, 
   TabValue,
   Button,
-  tokens
+  tokens,
+  Menu,
+  MenuTrigger,
+  MenuList,
+  MenuItem,
+  MenuPopover
 } from '@fluentui/react-components';
 import { Dismiss12Regular } from '@fluentui/react-icons';
 import { useAppStore } from '../store/useAppStore';
@@ -23,6 +28,11 @@ const useStyles = makeStyles({
     backgroundColor: tokens.colorNeutralBackground2,
     borderBottom: `1px solid ${tokens.colorNeutralStroke1}`,
   },
+  tabWrapper: {
+    display: 'flex',
+    alignItems: 'center',
+    gap: '4px',
+  },
   content: {
     flexGrow: 1,
     padding: '20px',
@@ -39,7 +49,7 @@ const useStyles = makeStyles({
 
 export const Workspace: React.FC = () => {
   const styles = useStyles();
-  const { tabs, activeTabId, setActiveTab, closeTab, plugins } = useAppStore();
+  const { tabs, activeTabId, setActiveTab, closeTab, closeOtherTabs, closeAllTabs, plugins } = useAppStore();
 
   const onTabSelect = (_: unknown, data: { value: TabValue }) => {
     setActiveTab(data.value as string);
@@ -56,20 +66,40 @@ export const Workspace: React.FC = () => {
         <div className={styles.tabContainer}>
           <TabList selectedValue={activeTabId} onTabSelect={onTabSelect}>
             {tabs.map((tab) => (
-              <Tab key={tab.id} value={tab.id}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                  {tab.title}
-                  <Button
-                    appearance="transparent"
-                    icon={<Dismiss12Regular />}
-                    size="small"
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      closeTab(tab.id);
-                    }}
-                  />
-                </div>
-              </Tab>
+              <Menu key={tab.id} positioning="below-start" openOnContext>
+                <MenuTrigger disableButtonEnhancement>
+                  <Tab value={tab.id}>
+                    <div className={styles.tabWrapper}>
+                      {/* 占位按钮，用于保持标题居中 */}
+                      <Button
+                        appearance="transparent"
+                        icon={<Dismiss12Regular />}
+                        size="small"
+                        style={{ visibility: 'hidden' }}
+                      />
+                      
+                      {tab.title}
+                      
+                      <Button
+                        appearance="transparent"
+                        icon={<Dismiss12Regular />}
+                        size="small"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          closeTab(tab.id);
+                        }}
+                      />
+                    </div>
+                  </Tab>
+                </MenuTrigger>
+                <MenuPopover>
+                  <MenuList>
+                    <MenuItem onClick={() => closeTab(tab.id)}>关闭当前标签</MenuItem>
+                    <MenuItem onClick={() => closeOtherTabs(tab.id)}>关闭其他标签</MenuItem>
+                    <MenuItem onClick={() => closeAllTabs()}>关闭所有标签</MenuItem>
+                  </MenuList>
+                </MenuPopover>
+              </Menu>
             ))}
           </TabList>
         </div>

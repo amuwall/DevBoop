@@ -21,6 +21,8 @@ interface AppState {
   
   openTab: (pluginId: string) => void;
   closeTab: (tabId: string) => void;
+  closeOtherTabs: (tabId: string) => void;
+  closeAllTabs: () => void;
   setActiveTab: (tabId: string) => void;
   
   toggleTheme: () => void;
@@ -47,9 +49,14 @@ export const useAppStore = create<AppState>((set, get) => ({
     const plugin = state.plugins.find(p => p.id === pluginId);
     if (!plugin) return;
 
-    // Check if tab already exists for this plugin? 
-    // Requirement says "multi-tab support", so maybe allow multiple instances?
-    // Let's allow multiple instances.
+    // Check if tab already exists for this plugin
+    const existingTab = state.tabs.find(t => t.pluginId === pluginId);
+    
+    if (existingTab) {
+      set({ activeTabId: existingTab.id });
+      return;
+    }
+
     const newTab: Tab = {
       id: generateId(),
       pluginId: pluginId,
@@ -74,6 +81,16 @@ export const useAppStore = create<AppState>((set, get) => ({
       tabs: newTabs,
       activeTabId: newActiveId
     };
+  }),
+
+  closeOtherTabs: (tabId) => set((state) => ({
+    tabs: state.tabs.filter(t => t.id === tabId),
+    activeTabId: tabId
+  })),
+
+  closeAllTabs: () => set({
+    tabs: [],
+    activeTabId: null
   }),
 
   setActiveTab: (tabId) => set({ activeTabId: tabId }),
