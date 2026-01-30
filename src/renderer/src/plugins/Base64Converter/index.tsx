@@ -414,6 +414,8 @@ export const Base64Plugin: IPlugin = {
   id: 'base64-converter',
   name: 'Base64 编解码',
   description: '文本与文件的 Base64 转换工具',
+  category: 'encoders',
+  tags: ['base64', 'encode', 'decode', 'file'],
   icon: <DocumentArrowRightRegular />,
   component: Base64Component,
   version: '1.0.0',

@@ -167,6 +167,8 @@ export const TimestampPlugin: IPlugin = {
   id: 'timestamp-converter',
   name: '时间戳转换器',
   description: 'Unix 时间戳与日期互转',
+  category: 'converters',
+  tags: ['time', 'date', 'unix', 'timestamp'],
   icon: <Clock24Regular />,
   component: TimestampComponent,
   version: '1.0.0',

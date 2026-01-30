@@ -341,6 +341,8 @@ export const JwtPlugin: IPlugin = {
   id: 'jwt-tool',
   name: 'JWT 工具',
   description: 'JWT 生成、解析与签名验证',
+  category: 'encoders',
+  tags: ['jwt', 'token', 'decode', 'verify', 'sign'],
   icon: <KeyRegular />,
   component: JwtComponent,
   version: '1.0.0',

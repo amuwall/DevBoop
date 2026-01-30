@@ -1,0 +1,25 @@
+{
+  "common": {
+    "dashboard": "Dashboard",
+    "settings": "Settings",
+    "search": "Search tools...",
+    "search_placeholder": "Type a command or search...",
+    "theme": "Theme",
+    "language": "Language",
+    "light": "Light",
+    "dark": "Dark",
+    "system": "System",
+    "recent_tools": "Recent Tools",
+    "all_tools": "All Tools",
+    "favorites": "Favorites",
+    "no_results": "No results found."
+  },
+  "categories": {
+    "converters": "Converters",
+    "encoders": "Encoders / Decoders",
+    "formatters": "Formatters",
+    "generators": "Generators",
+    "text": "Text",
+    "graphic": "Graphic"
+  }
+}

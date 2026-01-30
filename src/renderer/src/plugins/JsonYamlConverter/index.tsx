@@ -216,6 +216,8 @@ export const JsonYamlPlugin: IPlugin = {
   id: 'json-yaml-converter',
   name: 'JSON/YAML 转换',
   description: 'JSON 与 YAML 格式互转工具',
+  category: 'converters',
+  tags: ['json', 'yaml', 'format', 'convert'],
   icon: <DocumentDataRegular />,
   component: JsonYamlComponent,
   version: '1.0.0',

@@ -5,10 +5,12 @@ import {
   importSPKI, 
   jwtVerify, 
   decodeProtectedHeader, 
-  decodeJwt, 
-  type KeyLike 
+  decodeJwt 
 } from 'jose';
 import { GenerateOptions, VerifyOptions, DecodedResult, Algorithm } from './types';
+
+// Define KeyLike locally if not exported, or use any
+type KeyLike = any;
 
 const ENCODER = new TextEncoder();
 

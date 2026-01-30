@@ -14,6 +14,7 @@ import {
 } from '@fluentui/react-components';
 import { Dismiss12Regular } from '@fluentui/react-icons';
 import { useAppStore } from '../store/useAppStore';
+import { Dashboard } from './Dashboard';
 
 const useStyles = makeStyles({
   root: {
@@ -35,15 +36,15 @@ const useStyles = makeStyles({
   },
   content: {
     flexGrow: 1,
-    padding: '20px',
-    overflow: 'auto',
-  },
-  welcome: {
+    padding: '0', // Dashboard handles its own padding
+    overflow: 'hidden', // Let children handle scroll
     display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    height: '100%',
-    color: tokens.colorNeutralForeground3,
+    flexDirection: 'column',
+  },
+  scrollable: {
+    flexGrow: 1,
+    overflowY: 'auto',
+    padding: '20px',
   }
 });
 
@@ -65,53 +66,54 @@ export const Workspace: React.FC = () => {
       {tabs.length > 0 && (
         <div className={styles.tabContainer}>
           <TabList selectedValue={activeTabId} onTabSelect={onTabSelect}>
-            {tabs.map((tab) => (
-              <Menu key={tab.id} positioning="below-start" openOnContext>
-                <MenuTrigger disableButtonEnhancement>
-                  <Tab value={tab.id}>
-                    <div className={styles.tabWrapper}>
-                      {/* 占位按钮，用于保持标题居中 */}
-                      <Button
-                        appearance="transparent"
-                        icon={<Dismiss12Regular />}
-                        size="small"
-                        style={{ visibility: 'hidden' }}
-                      />
-                      
-                      {tab.title}
-                      
-                      <Button
-                        appearance="transparent"
-                        icon={<Dismiss12Regular />}
-                        size="small"
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          closeTab(tab.id);
-                        }}
-                      />
-                    </div>
-                  </Tab>
-                </MenuTrigger>
-                <MenuPopover>
-                  <MenuList>
-                    <MenuItem onClick={() => closeTab(tab.id)}>关闭当前标签</MenuItem>
-                    <MenuItem onClick={() => closeOtherTabs(tab.id)}>关闭其他标签</MenuItem>
-                    <MenuItem onClick={() => closeAllTabs()}>关闭所有标签</MenuItem>
-                  </MenuList>
-                </MenuPopover>
-              </Menu>
-            ))}
+            {tabs.map((tab) => {
+              const plugin = plugins.find(p => p.id === tab.pluginId);
+              return (
+                <Menu key={tab.id} positioning="below-start" openOnContext>
+                  <MenuTrigger disableButtonEnhancement>
+                    <Tab value={tab.id}>
+                      <div className={styles.tabWrapper}>
+                        {plugin?.icon && (
+                          <span style={{ display: 'flex', alignItems: 'center', marginRight: '4px' }}>
+                            {plugin.icon}
+                          </span>
+                        )}
+                        
+                        {tab.title}
+                        
+                        <Button
+                          appearance="transparent"
+                          icon={<Dismiss12Regular />}
+                          size="small"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            closeTab(tab.id);
+                          }}
+                        />
+                      </div>
+                    </Tab>
+                  </MenuTrigger>
+                  <MenuPopover>
+                    <MenuList>
+                      <MenuItem onClick={() => closeTab(tab.id)}>Close Tab</MenuItem>
+                      <MenuItem onClick={() => closeOtherTabs(tab.id)}>Close Others</MenuItem>
+                      <MenuItem onClick={() => closeAllTabs()}>Close All</MenuItem>
+                    </MenuList>
+                  </MenuPopover>
+                </Menu>
+              );
+            })}
           </TabList>
         </div>
       )}
       
       <div className={styles.content}>
         {ActivePluginComponent ? (
-          <ActivePluginComponent />
-        ) : (
-          <div className={styles.welcome}>
-            请从左侧栏选择一个工具以开始使用
+          <div className={styles.scrollable}>
+            <ActivePluginComponent />
           </div>
+        ) : (
+          <Dashboard />
         )}
       </div>
     </div>

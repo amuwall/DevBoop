@@ -1,0 +1,25 @@
+{
+  "common": {
+    "dashboard": "仪表盘",
+    "settings": "设置",
+    "search": "搜索工具...",
+    "search_placeholder": "输入命令或搜索...",
+    "theme": "主题",
+    "language": "语言",
+    "light": "浅色",
+    "dark": "深色",
+    "system": "跟随系统",
+    "recent_tools": "最近使用",
+    "all_tools": "所有工具",
+    "favorites": "收藏",
+    "no_results": "未找到结果。"
+  },
+  "categories": {
+    "converters": "转换器",
+    "encoders": "编码 / 解码",
+    "formatters": "格式化",
+    "generators": "生成器",
+    "text": "文本",
+    "graphic": "图形"
+  }
+}
